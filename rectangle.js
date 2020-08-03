@@ -1,4 +1,4 @@
-export function rect(x, y, callback) {
+function rect(x, y, callback) {
   if (x <= 0 || y <= 0) {
     callback(
       new Error(
@@ -8,11 +8,15 @@ export function rect(x, y, callback) {
   } else {
     setTimeout(
       () =>
-        callback(null, {
-          perimeter: () => 2 * (x + y),
-          area: () => x * y,
-        }),
+      callback(null, {
+        perimeter: () => 2 * (x + y),
+        area: () => x * y,
+      }),
       2000
     );
   }
+}
+
+export {
+  rect
 }
